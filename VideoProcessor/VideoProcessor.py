@@ -3,7 +3,7 @@ from Tracker import ObjectTracker, KeypointTracker
 from TeamAssigner import TeamAssigner, Team
 from supervision import Color
 from utils import Settings
-from ViewTransformer import ViewTransformer
+from ViewTransformer import ViewTransformer, CameraMovementEstimator
 from BallAssigner import BallPlayerAssigner
 from SpeedEstimator import SpeedEstimator
 from Annotator import ObjectAnnotator, KeypointAnnotator, ProjectionAnnotator
@@ -29,6 +29,7 @@ class FootballVideoProcessor():
                  projection_annotator: ProjectionAnnotator,
                  speed_estimator: SpeedEstimator,
                  transformer: ViewTransformer,
+                 camera_movement_estimator: CameraMovementEstimator,
                  settings: Settings,
                  display_map: bool=True,
                  display_keypoints: bool=True,
@@ -58,6 +59,7 @@ class FootballVideoProcessor():
         self.projection_annotator : ProjectionAnnotator = projection_annotator
         self.speed_estimator : SpeedEstimator = speed_estimator
         self.transformer : ViewTransformer = transformer
+        self.camera_movement_estimator : CameraMovementEstimator = camera_movement_estimator
         self.settings : Settings = settings
         self.display_map : bool = display_map
         self.read_from_stub : bool = read_from_stub
@@ -93,6 +95,9 @@ class FootballVideoProcessor():
         # Fit Team Assigner
         self.team_assigner.fit(frames=video_frames, all_tracks=object_tracks)
 
+        # calculate camera movement
+        camera_movement = self.camera_movement_estimator.get_camera_movement(video_frames)
+
         for frame_num, frame in enumerate(video_frames):
             
             frame_object_tracks = object_tracks[frame_num]
@@ -109,6 +114,8 @@ class FootballVideoProcessor():
             # Transform to top-down view
             frame_tracks['object_tracks'] = self.transformer.transform(object_tracks=frame_tracks['object_tracks'], keypoints_tracks=frame_tracks['keypoints_tracks'], filter=filters[frame_num])
 
+            frame_tracks['object_tracks'] = self.transformer.adjust_transforms(object_tracks=frame_tracks['object_tracks'], camera_movement=camera_movement[frame_num])
+            
             point1, point2 = None, None
             for key, val in enumerate(frame_tracks['keypoints_tracks'].xy[0]):
                 if key == 8:

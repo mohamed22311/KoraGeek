@@ -2,8 +2,7 @@ from typing import List, Tuple
 from Enums import Position
 import numpy as np
 
-from supervision import Detections
-Detections.get_anchors_coordinates
+
 def get_anchors_coordinates(bbox: List[int],anchor: Position) -> np.ndarray:
     """
     Calculates and returns the coordinates of a specific anchor point
@@ -116,3 +115,16 @@ def point_distance(p1: Tuple[float, float], p2: Tuple[float, float]) -> float:
         float: The distance between the two points.
     """
     return ((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2) ** 0.5
+
+def xy_distance(p1: Tuple[float, float], p2: Tuple[float, float]) -> Tuple[float, float]:
+    """
+    Calculate the horizontal and vertical distances between two points.
+
+    Args:
+        p1 (Tuple[float, float]): The first point (x1, y1).
+        p2 (Tuple[float, float]): The second point (x2, y2).
+
+    Returns:
+        Tuple[float, float]: The horizontal and vertical distances between the two points.
+    """
+    return p1[0] - p2[0], p1[1] - p2[1]

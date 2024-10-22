@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 import cv2
 import pandas as pd
@@ -63,15 +63,21 @@ class ViewTransformer(BaseTransformer):
         
         return object_data
     
+    def adjust_transforms(self,object_tracks: Dict[str, Dict[int, Dict[str, Any]]], camera_movement: Tuple[float, float]):
+        """
+        Adjust the projected positions of the objects based on the camera movement in each frame
 
-    def interpolate_ball_positions(self, tracks: List[Dict[str, Dict[int, Dict[str, List[int]]]]]) -> List[Dict[str, Dict[int, Dict[str, List[int]]]]]:
-        """
-        Interpolates the ball positions in the tracks using spline interpolation.
-        
         Args:
-            tracks (List[Dict[str, Dict[int, Dict[str, List[int]]]]]): The tracks containing ball positions.
-            
+            tracks (Dict[str, Dict[int, Dict[str, Any]]]): Object tracks containing the object information.
+            camera_movement (Tuple[float, float]): The camera movement in frame
+
         Returns:
-            List[Dict[str, Dict[int, Dict[str, List[int]]]]]: The tracks with interpolated ball positions.
+            Dict[str, Dict[int, Dict[str, Any]]]: The object tracks with adjusted projected positions
         """
-        pass
+        for class_name, track_data in object_tracks.items():
+            for track_id, track_info in track_data.items():
+                position = track_info['projection']
+                position_adjusted = (position[0]-camera_movement[0],position[1]-camera_movement[1])
+                object_tracks[class_name][track_id]['projection'] = position_adjusted
+
+        return object_tracks

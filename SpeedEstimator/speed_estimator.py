@@ -68,7 +68,7 @@ class SpeedEstimator:
                         prev_position, prev_frame = self.previous_positions[player_id]
 
                         # Calculate the distance in meters
-                        distance = self._calculate_distance(prev_position, current_position)/50
+                        distance = self._calculate_distance(prev_position, current_position)/80
 
                         # Calculate the time difference in seconds
                         time_diff = (frame_number - prev_frame) / self.fps
