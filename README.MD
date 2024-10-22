@@ -1,5 +1,7 @@
 # **KoraGeek - Soccer Player Detection and Tracking Project**
 
+[Watch the video](./video/output.mp4)
+
 ## **Table of Contents**
 
 - [Introduction](#introduction)

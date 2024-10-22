@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 from Tracker import ObjectTracker, KeypointTracker
 from TeamAssigner import TeamAssigner, Team
