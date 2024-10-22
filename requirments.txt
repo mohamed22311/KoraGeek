@@ -1,0 +1,11 @@
+torch
+ultralytics
+transformers
+wandb
+roboflow
+python-dotenv
+supervision
+more_itertools
+numpy
+umap-learn 
+scikit-learn
