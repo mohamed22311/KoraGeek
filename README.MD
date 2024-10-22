@@ -58,7 +58,7 @@ pip install -r requirments.txt
 1. Clone the repository:
 
     ```bash
-    git clone 
+    git clone https://github.com/mohamed22311/KoraGeek.git
     ```
 
 2. Install the required dependencies:
