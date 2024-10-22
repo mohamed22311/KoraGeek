@@ -68,8 +68,8 @@ pip install -r requirments.txt
     ```
 
 3. Download the pre-trained YOLOv11 models for object detection and keypoints detection:
-    - [Object Detection Model](
-    - [Keypoints Detection Model](
+    - [Object Detection Model] (#<https://github.com/mohamed22311/KoraGeek/tree/main/models/weights>)
+    - [Keypoints Detection Model] (#<https://github.com/mohamed22311/KoraGeek/tree/main/models/weights>)
 
 4. Update the paths to the pre-trained models in the code:
 
