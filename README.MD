@@ -68,8 +68,8 @@ pip install -r requirments.txt
     ```
 
 3. Download the pre-trained YOLOv11 models for object detection and keypoints detection:
-    - [Object Detection Model] (https://github.com/mohamed22311/KoraGeek/tree/main/models/weights)
-    - [Keypoints Detection Model] (https://github.com/mohamed22311/KoraGeek/tree/main/models/weights)
+    - [Object Detection Model](https://github.com/mohamed22311/KoraGeek/tree/main/models/weights)
+    - [Keypoints Detection Model](https://github.com/mohamed22311/KoraGeek/tree/main/models/weights)
 
 4. Update the paths to the pre-trained models in the code:
 
@@ -88,8 +88,8 @@ The original data used in Kora Geek comes from the **DFL - Bundesliga Data Shoot
 
 | **Use Case**                | **Dataset**                                   |
 |-----------------------------|-----------------------------------------------|
-| Soccer player detection      | [Download Dataset] (https://universe.roboflow.com/bundesligavideos/football-detection-model)                         |
-| Soccer pitch keypoint detection | [Download Dataset] (https://universe.roboflow.com/roboflow-jvuqo/football-field-detection-f07vi/dataset/15)                      |
+| Soccer player detection      | [Download Dataset](https://universe.roboflow.com/bundesligavideos/football-detection-model)                         |
+| Soccer pitch keypoint detection | [Download Dataset](https://universe.roboflow.com/roboflow-jvuqo/football-field-detection-f07vi/dataset/15)                      |
 
 The **Roboflow Soccer Player Detection** dataset is a specialized dataset designed to detect and track soccer players during a match. It is built from a collection of 1280x1280 images that have been labeled to identify individual players on the field, with bounding boxes marking their locations. This dataset is ideal for use in computer vision tasks like player tracking, team formation analysis, and movement prediction.
 
