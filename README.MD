@@ -1,6 +1,8 @@
 # **KoraGeek - Soccer Player Detection and Tracking Project**
 
-[image](image1.jpg)
+![alt text](image1.jpg)
+![alt text](image2.jpg)
+![alt text](image3.jpg)
 
 ## **Table of Contents**
 
@@ -35,9 +37,6 @@ Kora Geek is built for football enthusiasts, analysts, and developers interested
 - **Top-Down View Projection**: Transform the view of the field to a top-down view using homography matrix and perspective transform.
 - **Annotators**: Annotate the players, ball, and other objects in the video frames.
 - **Video Processing**: Process the video frame by frame and annotate the frames using the above components.
-
-[image](image2.jpg)
-[image](image3.jpg)
 
 ## **Requirements**
 
